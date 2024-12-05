@@ -9,5 +9,12 @@ describe('Various examples', () => {
 
         cy.getDataTest('nav-overview').click();
         cy.location('pathname').should('equal', '/overview');
-    });
+    })
+    it.only('intercepts', () => {
+        cy.intercept("POST", 'http://localhost:3000/examples', {
+            body: {
+                message: 'successfully intercepted'
+            }
+        })
+    })
 });
