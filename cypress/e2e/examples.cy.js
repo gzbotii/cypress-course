@@ -10,11 +10,12 @@ describe('Various examples', () => {
         cy.getDataTest('nav-overview').click();
         cy.location('pathname').should('equal', '/overview');
     })
-    it.only('intercepts', () => {
+    it('intercepts', () => {
         cy.intercept("POST", 'http://localhost:3000/examples', {
-            body: {
-                message: 'successfully intercepted'
-            }
+            fixture: 'example.json'
         })
+    })
+    it.only('grudges', () => {
+        cy.contains(/Add Some Grudges/i)
     })
 });
