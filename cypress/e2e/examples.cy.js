@@ -16,12 +16,13 @@ describe('Various examples', () => {
         })
     })
     it.only('grudges', () => {
+        const grudgeText = 'some grudge';
         cy.contains(/Add Some Grudges/i)
         cy.getDataTest('grudge-input').within(() => {
-            cy.get('input').type('some grudge')
+            cy.get('input').type(grudgeText)
         })
         cy.getDataTest('add-grudge').click();
-        cy.contains(/some grudge/i)
+        cy.contains(new RegExp(grudgeText, 'i'));
         cy.getDataTest('clear-grudge').click();
     })
 });
