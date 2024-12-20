@@ -60,7 +60,9 @@ export default function GrudgeList() {
             return (
               <li key={g.id}>
                 <span>{g.text}</span>
-                <Button onClick={() => deleteGrudge(g)}>X</Button>
+                <Button data-test="grduge-x" onClick={() => deleteGrudge(g)}>
+                  X
+                </Button>
               </li>
             );
           })}
