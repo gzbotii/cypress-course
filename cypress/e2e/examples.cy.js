@@ -27,6 +27,12 @@ describe('Various examples', () => {
         grudges.forEach((grudge) => {
             cy.contains(new RegExp(grudge, 'i'));
         });
+        cy.getDataTest('grudge-list').within(() => {
+            cy.get('li').should('have.length', 3)
+        })
         cy.getDataTest('clear-grudge').click();
+        cy.getDataTest('grudge-list').within(() => {
+            cy.get('li').should('have.length', 0); // No <li> items
+        });
     })
 });
