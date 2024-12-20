@@ -17,5 +17,11 @@ describe('Various examples', () => {
     })
     it.only('grudges', () => {
         cy.contains(/Add Some Grudges/i)
+        cy.getDataTest('grudge-input').within(() => {
+            cy.get('input').type('some grudge')
+        })
+        cy.getDataTest('add-grudge').click();
+        cy.contains(/some grudge/i)
+        cy.getDataTest('clear-grudge').click();
     })
 });
