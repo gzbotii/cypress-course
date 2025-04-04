@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:chrome": "cypress run --browser chrome",
+    "test:edge": "cypress run --browser edge",
+    "test:all": "npm run test:chrome && npm run test:edge"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
